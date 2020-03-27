@@ -1,9 +1,18 @@
 package ua.lviv.iot.first.rest.model;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Students {
     private String firstName;
     private String lastName;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)  //vkazye shcho pole ynikalne
     public Integer getId() {
         return id;
     }
@@ -13,7 +22,8 @@ public class Students {
     }
 
     private Integer id;
-    public Students(){
+
+    public Students() {
 
     }
 
