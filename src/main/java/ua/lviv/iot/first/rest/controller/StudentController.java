@@ -25,7 +25,7 @@ public class StudentController {
 
     @GetMapping
     public List<Students> getStudents() {
-        return new LinkedList<Students>(students.values());
+        return studentService.findAll();
     }
 
     @GetMapping(path = "/{id}")
@@ -35,10 +35,7 @@ public class StudentController {
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public Students createStudent(final @RequestBody Students student) {
-        System.out.println(studentService.createStudent(student));
-        student.setId(idCounter.incrementAndGet());
-        students.put(student.getId(), student);
-        return student;
+        return studentService.createStudent(student);
     }
 
     @DeleteMapping(path = "/{id}")

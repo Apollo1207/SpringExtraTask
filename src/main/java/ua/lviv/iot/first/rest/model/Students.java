@@ -1,10 +1,10 @@
 package ua.lviv.iot.first.rest.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
 
 @Entity
 public class Students {
@@ -13,15 +13,13 @@ public class Students {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)  //vkazye shcho pole ynikalne
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "group_id")
+    @JsonIgnoreProperties("students")
+    private Group group;
+
 
     public Students() {
 
@@ -30,6 +28,14 @@ public class Students {
     public Students(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 
@@ -49,5 +55,11 @@ public class Students {
         this.lastName = lastName;
     }
 
+    public Group getGroup() {
+        return group;
+    }
 
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }
