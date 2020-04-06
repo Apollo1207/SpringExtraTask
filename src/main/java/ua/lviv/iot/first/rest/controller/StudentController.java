@@ -23,9 +23,12 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping
-    public List<Students> getStudents() {
-        return studentService.findAll();
+    @GetMapping(path = "?firstName={firstName}")
+    public List<Students> getStudents(final @RequestParam(value = "firstName", required = false) String firstName) {
+        if (firstName == null) {
+            return studentService.findAll();
+        }
+        return studentService.getAllByFirstName(firstName);
     }
 
     @GetMapping(path = "/{id}")

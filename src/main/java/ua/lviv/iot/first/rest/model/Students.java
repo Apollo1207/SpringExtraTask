@@ -4,9 +4,12 @@ package ua.lviv.iot.first.rest.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
+@NamedNativeQuery(name = "Student.findBestStudent",
+        query = "select * from students where id = 1")
 public class Students {
     private String firstName;
     private String lastName;
@@ -19,6 +22,11 @@ public class Students {
     @JoinColumn(name = "group_id")
     @JsonIgnoreProperties("students")
     private Group group;
+
+    @JsonIgnoreProperties("student")
+    @ManyToMany(mappedBy = "students")
+    private Set<Subject> subjects;
+
 
 
     public Students() {

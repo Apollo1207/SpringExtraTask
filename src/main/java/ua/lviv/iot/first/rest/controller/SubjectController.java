@@ -1,24 +1,21 @@
 package ua.lviv.iot.first.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.lviv.iot.first.business.GroupService;
-import ua.lviv.iot.first.dataaccess.GroupRepository;
-import ua.lviv.iot.first.rest.model.Group;
+import ua.lviv.iot.first.business.SubjectService;
+import ua.lviv.iot.first.rest.model.Subject;
 
 import java.util.List;
 
-@RequestMapping("/groups")
+@RequestMapping("/subject")
 @RestController
-public class GroupController {
+public class SubjectController {
     @Autowired
-    private GroupService groupService;
-
+    private SubjectService subjectService;
     @GetMapping
-    public List<Group> findAllGroups(){
-        return groupService.findAll();
+    public List<Subject> findAllSubjects(){
+        return subjectService.findAll();
     }
 }
