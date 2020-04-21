@@ -3,7 +3,6 @@ package ua.lviv.iot.first.rest.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-
 import java.util.Set;
 
 @Entity
@@ -16,7 +15,7 @@ public class Group {
     private Integer enrollmentYear;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("group") //trablu posmotret return group
+    @JsonIgnoreProperties("group")
     private Set<Students> students;
 
     public Group() {
@@ -45,4 +44,13 @@ public class Group {
     public void setEnrollmentYear(Integer enrollmentYear) {
         this.enrollmentYear = enrollmentYear;
     }
+
+    public Set<Students> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Students> students) {
+        this.students = students;
+    }
 }
+

@@ -9,9 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan({"ua.lviv.iot.first.dataaccess", "ua.lviv.iot.first.business", "ua.lviv.iot.first.rest.controller"})
 @EnableJpaRepositories({"ua.lviv.iot.first.dataaccess"})
 public class RestApplication {
-
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(RestApplication.class, args);
     }
-
 }

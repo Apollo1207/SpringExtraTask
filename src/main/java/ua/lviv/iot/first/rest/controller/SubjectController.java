@@ -14,8 +14,9 @@ import java.util.List;
 public class SubjectController {
     @Autowired
     private SubjectService subjectService;
+
     @GetMapping
-    public List<Subject> findAllSubjects(){
+    public List<Subject> findAllSubjects() {
         return subjectService.findAll();
     }
 }

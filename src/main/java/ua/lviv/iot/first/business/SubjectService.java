@@ -11,7 +11,8 @@ import java.util.List;
 public class SubjectService {
     @Autowired
     private SubjectRepository subjectRepository;
-    public List<Subject> findAll(){
+
+    public List<Subject> findAll() {
         return subjectRepository.findAll();
     }
 }

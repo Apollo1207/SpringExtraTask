@@ -8,14 +8,12 @@ import java.util.Set;
 
 
 @Entity
-@NamedNativeQuery(name = "Student.findBestStudent",
-        query = "select * from students where id = 1")
 public class Students {
     private String firstName;
     private String lastName;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  //vkazye shcho pole ynikalne
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -27,10 +25,7 @@ public class Students {
     @ManyToMany(mappedBy = "students")
     private Set<Subject> subjects;
 
-
-
     public Students() {
-
     }
 
     public Students(String firstName, String lastName) {
@@ -45,7 +40,6 @@ public class Students {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -69,5 +63,13 @@ public class Students {
 
     public void setGroup(Group group) {
         this.group = group;
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 }

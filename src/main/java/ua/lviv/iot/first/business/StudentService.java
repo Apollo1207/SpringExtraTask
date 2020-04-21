@@ -16,16 +16,18 @@ public class StudentService {
     public Students createStudent(Students student) {
         return studentRepository.save(student);
     }
-    public Students updateStudent(Students students, String id){
+
+    public Students updateStudent(Students students, String id) {
         String query = "select * from students where id = :id";
         String finalQuery = query + id;
         return null;
     }
-    public List<Students> findAll(){
+
+    public List<Students> findAll() {
         return studentRepository.findAll();
     }
 
-    public List<Students> getAllByFirstName(String firstName){
+    public List<Students> getAllByFirstName(String firstName) {
         return studentRepository.findAllByFirstName(firstName);
     }
 }

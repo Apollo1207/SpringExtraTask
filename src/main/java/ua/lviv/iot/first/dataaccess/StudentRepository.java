@@ -9,7 +9,4 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends JpaRepository<Students, Integer> {
     List<Students> findAllByFirstName(String firstName);
-    List<Students> findAllByFirstNameAndLastName(String firstName, String lastName);
-    Students findBestStudent();
-
 }

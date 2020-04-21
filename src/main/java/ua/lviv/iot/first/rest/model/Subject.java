@@ -13,7 +13,6 @@ public class Subject {
     private Integer id;
     private String name;
 
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "Student_Subjects", joinColumns = {
             @JoinColumn(name = "subject_id", nullable = false)},
@@ -48,6 +47,5 @@ public class Subject {
     public void setStudents(Set<Students> students) {
         this.students = students;
     }
-
 
 }
